@@ -1,4 +1,5 @@
-name: bluebuild
+
+          name: bluebuild
 on:
   schedule:
     - cron:
@@ -35,8 +36,8 @@ jobs:
           recipe: ${{ matrix.recipe }}
           registry_token: ${{ github.token }}
           pr_event_number: ${{ github.event.number }}
-          no_sign: true
+          build_opts: "--no-sign"
 
           # enabled by default, disable if your image is small and you want faster builds
           maximize_build_space: true
-          
+

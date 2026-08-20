@@ -35,22 +35,3 @@ jobs:
           build_opts: "--no-sign"
           maximize_build_space: true
           
-  generate-iso:
-    name: Generate Installer ISO
-    needs: bluebuild
-    runs-on: ubuntu-latest
-    steps:
-      - name: Generate ISO
-        uses: jasonn3/build-container-installer@v1.2.2
-        with:
-          image_name: fedora-ultimate-gaming
-          image_repo: ghcr.io/${{ github.repository_owner }}
-          version: latest
-          variant: Kde
-
-      - name: Upload ISO Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: fedora-ultimate-gaming-installer-iso
-          path: "*.iso"
-          

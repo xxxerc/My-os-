@@ -34,7 +34,7 @@ jobs:
           pr_event_number: ${{ github.event.number }}
           build_opts: "--no-sign"
           maximize_build_space: true
-
+          
   generate-iso:
     name: Generate Installer ISO
     needs: bluebuild
